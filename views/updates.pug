@@ -1,0 +1,23 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        .form-wrapper
+            h1 Custom Object Form | Integrating With HubSpot I Practicum. 
+            a(href="/") Return to the homepage
+            //- p Name: #{data.properties.name}
+            //- p Type: #{data.properties.type}
+            //- p CPU: #{data.properties.cpu}
+            form(action="/update" method="post")
+                input(type="hidden" name="id" value=data.id)
+                label(for="name") Name:
+                input(type="text" name="name" value=data.properties.name || '')
+                label(for="type") Type:
+                input(type="text" id="type" name="type" value=data.properties.type || '')
+                label(for="cpu") CPU:
+                input(type="text" id="cpu" name="cpu" value=data.properties.cpu || '')
+                br
+                button(type="submit" value="Submit") #{buttonText}

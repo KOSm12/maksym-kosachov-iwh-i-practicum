@@ -1,0 +1,21 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 Custom Objects Table
+        a(href="/update-cobj") Create New Custom Object
+        table.cobj-table
+            thead
+                tr
+                    th Name
+                    th Type
+                    th CPU
+            tbody
+                each server in data
+                    tr
+                        td: a(href=`/update-cobj?id=${server.id}`) #{server.properties.name}
+                        td #{server.properties.type}
+                        td #{server.properties.cpu}
